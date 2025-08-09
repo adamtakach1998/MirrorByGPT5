@@ -1,0 +1,12 @@
+workflows:
+  android_debug:
+    name: Android Debug
+    environment:
+      android:
+        image: latest
+      java: 17
+    scripts:
+      - chmod +x gradlew || true
+      - ./gradlew clean assembleDebug || gradle clean assembleDebug
+    artifacts:
+      - app/build/outputs/apk/debug/*.apk
